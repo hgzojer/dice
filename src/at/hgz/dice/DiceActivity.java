@@ -17,20 +17,33 @@ import android.widget.TextView;
 
 public class DiceActivity extends ListActivity {
 
+	private static final String RESULTS = "results";
+
 	private List<String> results = new ArrayList<String>(2);
-	
+
 	private ResultsArrayAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dice);
-		
+
 		adapter = new ResultsArrayAdapter(this, R.layout.results_item, results);
 		setListAdapter(adapter);
 
-		addDice();
-		addDice();
+		if (savedInstanceState != null) {
+			String resultString = savedInstanceState.getString(RESULTS);
+			if (resultString.length() > 0) {
+				resultString = resultString.substring(0, resultString.length() - 1);
+				for (String result : resultString.split("\0")) {
+					results.add(result);
+				}
+			}
+			adapter.notifyDataSetChanged();
+		} else {
+			addDice();
+			addDice();
+		}
 	}
 
 	@Override
@@ -58,9 +71,21 @@ public class DiceActivity extends ListActivity {
 		}
 	}
 
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+		super.onSaveInstanceState(savedInstanceState);
+		StringBuilder sb = new StringBuilder();
+		for (String result : results) {
+			sb.append(result);
+			sb.append('\0');
+		}
+		savedInstanceState.putString(RESULTS, sb.toString());
+	}
+
 	private void addDice() {
 		results.add(dice(results.size()));
 		adapter.notifyDataSetChanged();
+		setSelection(results.size() - 1);
 	}
 
 	private void removeDice() {
@@ -68,6 +93,7 @@ public class DiceActivity extends ListActivity {
 			results.remove(results.size() - 1);
 		}
 		adapter.notifyDataSetChanged();
+		setSelection(results.size() - 1);
 	}
 
 	private void diceAll() {
@@ -89,24 +115,21 @@ public class DiceActivity extends ListActivity {
 			public String result;
 		}
 
-		public ResultsArrayAdapter(Context context, int resource,
-				List<String> objects) {
+		public ResultsArrayAdapter(Context context, int resource, List<String> objects) {
 			super(context, resource, objects);
 		}
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			
+
 			String result = getItem(position);
-			
+
 			// reuse views
 			if (convertView == null) {
-				convertView = LayoutInflater.from(getContext()).inflate(
-						R.layout.results_item, parent, false);
+				convertView = LayoutInflater.from(getContext()).inflate(R.layout.results_item, parent, false);
 				// configure view holder
 				ViewHolder vh = new ViewHolder();
-				vh.resultsItem = (TextView) convertView
-						.findViewById(R.id.resultsItem);
+				vh.resultsItem = (TextView) convertView.findViewById(R.id.resultsItem);
 				convertView.setTag(vh);
 			}
 
