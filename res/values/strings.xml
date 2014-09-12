@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_dice">dice</string>
+    <string name="add_dice">add dice</string>
+    <string name="app_name">Dice</string>
+    <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="no_dice">no dice</string>
+    <string name="remove_dice">remove dice</string>
+
+</resources>
