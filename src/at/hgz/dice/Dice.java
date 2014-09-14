@@ -1,7 +1,5 @@
 package at.hgz.dice;
 
-import android.util.Log;
-
 public enum Dice {
 
 	/**
@@ -9,14 +7,33 @@ public enum Dice {
 	 */
 	COIN {
 		@Override
+		public int getImage() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
+		@Override
+		public String getText() {
+			return "Coin";
+		}
+		@Override
 		public int getImage(double d) {
 			// TODO Auto-generated method stub
 			throw new RuntimeException("Not implemented!");
 		}
 		@Override
 		public String getText(double d) {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
+			return toInt(d) == 0 ? "Head" : "Tail";
+		}
+		@Override
+		public boolean isImage() {
+			return false;
+		}
+		@Override
+		public boolean isText() {
+			return true;
+		}
+		private int toInt(double d) {
+			return (int) (d * 2);
 		}
 	},
 	
@@ -24,6 +41,16 @@ public enum Dice {
 	 * 4
 	 */
 	TETRAHEDRON {
+		@Override
+		public int getImage() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
+		@Override
+		public String getText() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
 		@Override
 		public int getImage(double d) {
 			// TODO Auto-generated method stub
@@ -49,6 +76,14 @@ public enum Dice {
 			R.drawable.ic_w6d6,
 		};
 		@Override
+		public int getImage() {
+			return R.drawable.ic_w6;
+		}
+		@Override
+		public String getText() {
+			return "1 ... 6";
+		}
+		@Override
 		public int getImage(double d) {
 			return images[toInt(d)];
 		}
@@ -66,6 +101,16 @@ public enum Dice {
 	 */
 	OCTAHEDRON {
 		@Override
+		public int getImage() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
+		@Override
+		public String getText() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
+		@Override
 		public int getImage(double d) {
 			// TODO Auto-generated method stub
 			throw new RuntimeException("Not implemented!");
@@ -81,6 +126,16 @@ public enum Dice {
 	 * 10
 	 */
 	PENTAGONAL_TRAPEZOHEDRON {
+		@Override
+		public int getImage() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
+		@Override
+		public String getText() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
 		@Override
 		public int getImage(double d) {
 			// TODO Auto-generated method stub
@@ -98,6 +153,16 @@ public enum Dice {
 	 */
 	DODECAHEDRON {
 		@Override
+		public int getImage() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
+		@Override
+		public String getText() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
+		@Override
 		public int getImage(double d) {
 			// TODO Auto-generated method stub
 			throw new RuntimeException("Not implemented!");
@@ -113,6 +178,16 @@ public enum Dice {
 	 * 20
 	 */
 	ICOSAHEDRON {
+		@Override
+		public int getImage() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
+		@Override
+		public String getText() {
+			// TODO Auto-generated method stub
+			throw new RuntimeException("Not implemented!");
+		}
 		@Override
 		public int getImage(double d) {
 			// TODO Auto-generated method stub
@@ -132,6 +207,10 @@ public enum Dice {
 	public boolean isText() {
 		return false;
 	}
+	
+	public abstract int getImage();
+	
+	public abstract String getText();
 	
 	public abstract int getImage(double d);
 	

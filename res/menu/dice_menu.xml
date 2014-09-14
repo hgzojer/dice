@@ -6,6 +6,11 @@
         android:showAsAction="ifRoom"
         android:title="@string/remove_dice"/>
     <item
+        android:id="@+id/add_other_dice"
+        android:icon="@drawable/ic_action_add_other_dice"
+        android:showAsAction="ifRoom"
+        android:title="@string/add_other_dice"/>
+    <item
         android:id="@+id/add_dice"
         android:icon="@drawable/ic_action_add_dice"
         android:showAsAction="ifRoom"

@@ -3,9 +3,12 @@
 
     <string name="action_dice">dice</string>
     <string name="add_dice">add dice</string>
+    <string name="add_other_dice">add other dice</string>
     <string name="app_name">Dice</string>
     <string name="lorem_ipsum">Lorem ipsum</string>
     <string name="no_dice">no dice</string>
     <string name="remove_dice">remove dice</string>
+    <string name="title_activity_choose_dice">Choose Dice</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

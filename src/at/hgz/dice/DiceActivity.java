@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DiceActivity extends ListActivity {
+	
+	private static int CHOOSE_DICE = 1;
 
 	private static final String RESULTS = "results";
 
@@ -61,6 +64,9 @@ public class DiceActivity extends ListActivity {
 		case R.id.add_dice:
 			addDice();
 			return true;
+		case R.id.add_other_dice:
+			addOtherDice();
+			return true;
 		case R.id.remove_dice:
 			removeDice();
 			return true;
@@ -89,6 +95,23 @@ public class DiceActivity extends ListActivity {
 		setSelection(results.size() - 1);
 	}
 
+	private void addOtherDice() {
+		Intent intent = new Intent(this, ChooseDiceActivity.class);
+		startActivityForResult(intent, CHOOSE_DICE);
+	}
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == CHOOSE_DICE) {
+			if (resultCode == RESULT_OK) {
+				String s = data.getStringExtra(ChooseDiceActivity.SELECTED_DICE);
+				results.add(new Result(Dice.valueOf(s), 0));
+				results.set(results.size() - 1, dice(results.size()));
+				adapter.notifyDataSetChanged();
+				setSelection(results.size() - 1);
+			}
+		}
+	}
+
 	private void removeDice() {
 		if (results.size() > 0) {
 			results.remove(results.size() - 1);
@@ -107,8 +130,12 @@ public class DiceActivity extends ListActivity {
 	private Result dice(int i) {
 		double d = Math.random();
 		Dice dice;
-		if (results.size() >= i || results.get(i) == null) {
-			dice = Dice.CUBE;
+		if (i >= results.size() || results.get(i) == null) {
+			if (i == 0) {
+				dice = Dice.CUBE;
+			} else {
+				dice = results.get(i - 1).getDice();
+			}
 		} else {
 			dice = results.get(i).getDice();
 		}
