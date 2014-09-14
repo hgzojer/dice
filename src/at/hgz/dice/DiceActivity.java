@@ -13,13 +13,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DiceActivity extends ListActivity {
 
 	private static final String RESULTS = "results";
 
-	private List<String> results = new ArrayList<String>(2);
+	private List<Result> results = new ArrayList<Result>(2);
 
 	private ResultsArrayAdapter adapter;
 
@@ -36,7 +37,7 @@ public class DiceActivity extends ListActivity {
 			if (resultString.length() > 0) {
 				resultString = resultString.substring(0, resultString.length() - 1);
 				for (String result : resultString.split("\0")) {
-					results.add(result);
+					results.add(Result.valueOf(result));
 				}
 			}
 			adapter.notifyDataSetChanged();
@@ -75,8 +76,8 @@ public class DiceActivity extends ListActivity {
 	public void onSaveInstanceState(Bundle savedInstanceState) {
 		super.onSaveInstanceState(savedInstanceState);
 		StringBuilder sb = new StringBuilder();
-		for (String result : results) {
-			sb.append(result);
+		for (Result result : results) {
+			sb.append(result.toString());
 			sb.append('\0');
 		}
 		savedInstanceState.putString(RESULTS, sb.toString());
@@ -103,32 +104,40 @@ public class DiceActivity extends ListActivity {
 		adapter.notifyDataSetChanged();
 	}
 
-	private String dice(int i) {
-		int ret = 1 + (int) (Math.random() * 6);
-		return "" + ret;
+	private Result dice(int i) {
+		double d = Math.random();
+		Dice dice;
+		if (results.size() >= i || results.get(i) == null) {
+			dice = Dice.CUBE;
+		} else {
+			dice = results.get(i).getDice();
+		}
+		return new Result(dice, d);
 	}
 
-	private static class ResultsArrayAdapter extends ArrayAdapter<String> {
+	private static class ResultsArrayAdapter extends ArrayAdapter<Result> {
 
 		static class ViewHolder {
+			public ImageView resultsImage;
 			public TextView resultsItem;
-			public String result;
+			public Result result;
 		}
 
-		public ResultsArrayAdapter(Context context, int resource, List<String> objects) {
+		public ResultsArrayAdapter(Context context, int resource, List<Result> objects) {
 			super(context, resource, objects);
 		}
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 
-			String result = getItem(position);
+			Result result = getItem(position);
 
 			// reuse views
 			if (convertView == null) {
 				convertView = LayoutInflater.from(getContext()).inflate(R.layout.results_item, parent, false);
 				// configure view holder
 				ViewHolder vh = new ViewHolder();
+				vh.resultsImage = (ImageView) convertView.findViewById(R.id.resultsImage);
 				vh.resultsItem = (TextView) convertView.findViewById(R.id.resultsItem);
 				convertView.setTag(vh);
 			}
@@ -136,7 +145,18 @@ public class DiceActivity extends ListActivity {
 			// fill data
 			ViewHolder vh = (ViewHolder) convertView.getTag();
 			vh.result = result;
-			vh.resultsItem.setText(vh.result);
+			if (vh.result.isImage()) {
+				vh.resultsImage.setImageResource(vh.result.getImage());
+				vh.resultsImage.setVisibility(View.VISIBLE);
+			} else {
+				vh.resultsImage.setVisibility(View.GONE);
+			}
+			if (vh.result.isText()) {
+				vh.resultsItem.setText(vh.result.getText());
+				vh.resultsItem.setVisibility(View.VISIBLE);
+			} else {
+				vh.resultsItem.setVisibility(View.GONE);
+			}
 
 			return convertView;
 		}
