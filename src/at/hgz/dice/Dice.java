@@ -6,31 +6,25 @@ public enum Dice {
 	 * 2
 	 */
 	COIN {
-		@Override
-		public int getImage() {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
-		}
+		private int[] images = {
+				R.drawable.ic_w2d1,
+				R.drawable.ic_w2d2,
+			};
+			@Override
+			public int getImage() {
+				return R.drawable.ic_w2;
+			}
 		@Override
 		public String getText() {
 			return "Coin";
 		}
 		@Override
 		public int getImage(double d) {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
+			return images[toInt(d)];
 		}
 		@Override
 		public String getText(double d) {
 			return toInt(d) == 0 ? "Head" : "Tail";
-		}
-		@Override
-		public boolean isImage() {
-			return false;
-		}
-		@Override
-		public boolean isText() {
-			return true;
 		}
 		private int toInt(double d) {
 			return (int) (d * 2);
