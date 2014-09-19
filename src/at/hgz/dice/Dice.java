@@ -35,27 +35,32 @@ public enum Dice {
 	 * 4
 	 */
 	TETRAHEDRON {
-		@Override
-		public int getImage() {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
-		}
-		@Override
-		public String getText() {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
-		}
-		@Override
-		public int getImage(double d) {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
-		}
-		@Override
-		public String getText(double d) {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
-		}
-	},
+		private int[] images = {
+				R.drawable.ic_w4d1,
+				R.drawable.ic_w4d2,
+				R.drawable.ic_w4d3,
+				R.drawable.ic_w4d4,
+			};
+			@Override
+			public int getImage() {
+				return R.drawable.ic_w4;
+			}
+			@Override
+			public String getText() {
+				return "1 ... 4";
+			}
+			@Override
+			public int getImage(double d) {
+				return images[toInt(d)];
+			}
+			@Override
+			public String getText(double d) {
+				return "" + (1 + toInt(d)); 
+			}
+			private int toInt(double d) {
+				return (int) (d * 4);
+			}
+		},
 	
 	/**
 	 * 6
