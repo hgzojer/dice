@@ -35,11 +35,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="577.8387"
-     inkscape:cy="675.08773"
+     inkscape:zoom="1.979899"
+     inkscape:cx="463.47095"
+     inkscape:cy="789.59024"
      inkscape:document-units="px"
-     inkscape:current-layer="g3979"
+     inkscape:current-layer="g3975-4-5"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1137"
@@ -1776,6 +1776,150 @@
              inkscape:export-ydpi="806.40002" />
         </g>
       </g>
+    </g>
+    <path
+       transform="translate(94.688098,67.18458)"
+       sodipodi:type="arc"
+       style="fill:#ffcc00;fill-opacity:1;stroke:#554400;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path3159-7-9"
+       sodipodi:cx="504.28571"
+       sodipodi:cy="303.79077"
+       sodipodi:rx="28.571428"
+       sodipodi:ry="28.571428"
+       d="m 532.85713,303.79077 a 28.571428,28.571428 0 1 1 -57.14285,0 28.571428,28.571428 0 1 1 57.14285,0 z"
+       inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d2.png"
+       inkscape:export-xdpi="766.40002"
+       inkscape:export-ydpi="766.40002" />
+    <g
+       id="g3975-4"
+       transform="translate(93.834398,3.6859897)"
+       style="fill:#554400"
+       inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d2.png"
+       inkscape:export-xdpi="766.40002"
+       inkscape:export-ydpi="766.40002">
+      <g
+         id="g3972-8"
+         style="fill:#554400">
+        <g
+           id="g3979-8"
+           style="fill:#554400">
+          <path
+             style="fill:#554400;fill-opacity:1;stroke:none"
+             d="m 506.60713,348.43362 2.85714,0 -0.21557,33.83293 c 0.34469,0.66879 2.17051,2.26864 4.57503,2.70856 l -0.13951,1.69895 -16.15994,-0.0262 0.0108,-1.64702 c 1.33727,-0.12006 3.88789,-1.54283 4.48154,-2.7037 l 0.037,-24.04215 -6.07143,0 c 0.37454,-0.20613 -0.0853,-1.01422 0.31643,-1.16587 6.91679,-2.61085 7.71751,-3.9766 10.30857,-8.65555 z"
+             id="rect4060-2"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccccccccscc"
+             inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d2.png"
+             inkscape:export-xdpi="806.40002"
+             inkscape:export-ydpi="806.40002" />
+        </g>
+      </g>
+    </g>
+    <path
+       transform="translate(94.229673,0.55345673)"
+       sodipodi:type="arc"
+       style="fill:#ffcc00;fill-opacity:1;stroke:#554400;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3159-7-9-4"
+       sodipodi:cx="504.28571"
+       sodipodi:cy="303.79077"
+       sodipodi:rx="28.571428"
+       sodipodi:ry="28.571428"
+       d="m 532.85713,303.79077 a 28.571428,28.571428 0 1 1 -57.14285,0 28.571428,28.571428 0 1 1 57.14285,0 z"
+       inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d1.png"
+       inkscape:export-xdpi="806.40002"
+       inkscape:export-ydpi="806.40002" />
+    <g
+       id="g3975-4-5"
+       transform="translate(93.733116,-61.873705)"
+       style="fill:#ffcc00;stroke:#554400">
+      <path
+         style="fill:#ffcc00;stroke:#554400;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 501.7177,355.57195 c 3.20228,-0.94471 9.24386,-0.38348 12.56346,9.97306 0.40091,10.77299 -2.92482,10.28462 -2.39613,18.90998 -3.40599,4.52439 -5.70836,6.4052 -6.99395,6.42241 -1.9148,0.0257 -1.57392,-4.08298 0.73564,-9.74853 -0.0914,2.01107 -9.58835,0.38444 -3.19862,-5.06775 l -12.34936,0.30572 1.78846,-3.61289 c -7.92162,4.58726 -9.48537,-0.34557 -8.42196,-3.84517 0.90996,-1.59845 1.04603,-5.42324 9.2708,0.71613 -0.0211,-5.28669 2.09971,-10.24497 9.00166,-14.05296 z"
+         id="rect3988"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccsccccccc"
+         inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d1.png"
+         inkscape:export-xdpi="806"
+         inkscape:export-ydpi="806" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffcc00;stroke:#554400;stroke-width:6.25645161;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="path3966"
+         sodipodi:cx="304.10715"
+         sodipodi:cy="632.00507"
+         sodipodi:rx="11.607142"
+         sodipodi:ry="11.25"
+         d="m 315.71429,632.00507 c 0,6.2132 -5.1967,11.25 -11.60714,11.25 -6.41045,0 -11.60715,-5.0368 -11.60715,-11.25 0,-6.21321 5.1967,-11.25 11.60715,-11.25 6.41044,0 11.60714,5.03679 11.60714,11.25 z"
+         transform="matrix(0.35112151,0,0,0.29103571,389.64385,179.26623)"
+         inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d1.png"
+         inkscape:export-xdpi="806"
+         inkscape:export-ydpi="806" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffcc00;stroke:#554400;stroke-width:6.09048223;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="path3964"
+         sodipodi:cx="329.73215"
+         sodipodi:cy="634.86218"
+         sodipodi:rx="9.9107141"
+         sodipodi:ry="14.464286"
+         d="m 339.64286,634.86218 c 0,7.98841 -4.43718,14.46429 -9.91071,14.46429 -5.47354,0 -9.91072,-6.47588 -9.91072,-14.46429 0,-7.9884 4.43718,-14.46428 9.91072,-14.46428 5.47353,0 9.91071,6.47588 9.91071,14.46428 z"
+         transform="matrix(0.35297578,0.12978463,-0.10734924,0.26602949,454.78101,152.36321)"
+         inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d1.png"
+         inkscape:export-xdpi="806"
+         inkscape:export-ydpi="806" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffcc00;stroke:#554400;stroke-width:12.18072128;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="path3968"
+         sodipodi:cx="293.66071"
+         sodipodi:cy="632.63007"
+         sodipodi:rx="4.1964288"
+         sodipodi:ry="4.5535712"
+         d="m 297.85713,632.63007 a 4.1964288,4.5535712 0 1 1 -8.39285,0 4.1964288,4.5535712 0 1 1 8.39285,0 z"
+         transform="matrix(0.18566556,0,0,0.14520534,440.25187,270.92609)"
+         inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d1.png"
+         inkscape:export-xdpi="806"
+         inkscape:export-ydpi="806" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffcc00;stroke:#554400;stroke-width:10.81428337;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="path3968-1"
+         sodipodi:cx="293.66071"
+         sodipodi:cy="632.63007"
+         sodipodi:rx="4.1964288"
+         sodipodi:ry="4.5535712"
+         d="m 297.85713,632.63007 a 4.1964288,4.5535712 0 1 1 -8.39285,0 4.1964288,4.5535712 0 1 1 8.39285,0 z"
+         transform="matrix(0.20253562,0,0,0.16887411,442.4664,257.27379)"
+         inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d1.png"
+         inkscape:export-xdpi="806"
+         inkscape:export-ydpi="806" />
+      <path
+         style="fill:#ffcc00;stroke:#554400;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 500.87582,354.5358 c 2.73838,-3.14304 -1.3e-4,-11.6781 -1.3e-4,-11.6781 5.85526,1.33757 6.05749,5.56447 6.58266,9.62632 l 6.83976,-5.29673 c 0.12371,5.70572 -0.94319,6.43442 -0.81947,9.8348 0.30577,-2.77896 14.76012,-2.5687 13.75586,1.11356 -2.29598,-1.5672 -10.17683,1.12119 -12.37198,6.22823 -4.82746,-3.08432 -9.28583,-6.67268 -13.9867,-9.82808 z"
+         id="path3962"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccc"
+         inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d1.png"
+         inkscape:export-xdpi="806"
+         inkscape:export-ydpi="806" />
+      <path
+         style="fill:#ffcc00;stroke:#554400;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 491.42084,376.35996 10.87969,-0.12952 c -0.61608,1.40976 -0.35732,2.62562 -2.65516,3.69134 -1.7891,0.20426 -2.75152,-1.16654 -2.97915,-3.70059 -0.72769,1.71316 -0.51046,4.19646 -3.36734,3.95962 -2.56246,-0.65218 -1.62177,-2.5537 -1.87804,-3.82085 z"
+         id="rect3991"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccc"
+         inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d1.png"
+         inkscape:export-xdpi="806"
+         inkscape:export-ydpi="806" />
+      <path
+         style="fill:#ffcc00;stroke:#554400;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 510.07174,366.45165 c 0.47687,1.29867 0.95474,2.59428 1.26313,4.3983 -0.36645,0.83798 -0.81266,1.71582 -1.52216,2.72532"
+         id="path3994"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc"
+         inkscape:export-filename="C:\Users\Hans\sonst\progs\github\dice\w2d1.png"
+         inkscape:export-xdpi="806"
+         inkscape:export-ydpi="806" />
     </g>
   </g>
 </svg>
