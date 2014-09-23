@@ -36,7 +36,7 @@ public class ChooseDiceActivity extends ListActivity {
 		dice.add(Dice.DODECAHEDRON);
 		dice.add(Dice.ICOSAHEDRON);
 
-		adapter = new DiceArrayAdapter(this, R.layout.results_item, dice);
+		adapter = new DiceArrayAdapter(this, R.layout.dice_item, dice);
 		setListAdapter(adapter);
 	}
 
@@ -68,7 +68,7 @@ public class ChooseDiceActivity extends ListActivity {
 
 			// reuse views
 			if (convertView == null) {
-				convertView = LayoutInflater.from(getContext()).inflate(R.layout.results_item, parent, false);
+				convertView = LayoutInflater.from(getContext()).inflate(R.layout.dice_item, parent, false);
 				// configure view holder
 				ViewHolder vh = new ViewHolder();
 				vh.resultsImage = (ImageView) convertView.findViewById(R.id.resultsImage);

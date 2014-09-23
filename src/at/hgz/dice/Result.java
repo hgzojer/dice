@@ -1,14 +1,16 @@
 package at.hgz.dice;
 
+import java.util.Arrays;
+
 public class Result {
 
 	private Dice dice;
 	
-	private double value;
+	private double[] values;
 
-	public Result(Dice dice, double value) {
+	public Result(Dice dice, double[] values) {
 		this.dice = dice;
-		this.value = value;
+		this.values = Arrays.copyOf(values, values.length);
 	}
 
 	public Dice getDice() {
@@ -19,20 +21,20 @@ public class Result {
 		this.dice = dice;
 	}
 
-	public double getValue() {
-		return value;
+	public double[] getValues() {
+		return Arrays.copyOf(values, values.length);
 	}
 
-	public void setValue(double value) {
-		this.value = value;
+	public void setValue(double[] values) {
+		this.values = Arrays.copyOf(values, values.length);
 	}
 
-	public String getText() {
-		return dice.getText(value);
+	public String getText(int i) {
+		return dice.getText(values[i]);
 	}
 	
-	public int getImage() {
-		return dice.getImage(value);
+	public int getImage(int i) {
+		return dice.getImage(values[i]);
 	}
 	
 	public boolean isText() {
@@ -44,13 +46,27 @@ public class Result {
 	}
 	
 	public String toString() {
-		return dice.toString() + "\u0001" + Double.doubleToRawLongBits(value);
+		StringBuilder sb = new StringBuilder();
+		sb.append(dice.toString());
+		sb.append('\u0001');
+		for (int i = 0; i < values.length; i++) {
+			if (i > 0) {
+				sb.append('\u0002');
+			}
+			sb.append(Double.doubleToRawLongBits(values[i]));
+		}
+		return sb.toString();
 	}
 	
 	public static Result valueOf(String s) {
 		String[] arr = s.split("\u0001");
 		Dice dice = Dice.valueOf(arr[0]);
-		double value = Double.longBitsToDouble(Long.parseLong(arr[1]));
-		return new Result(dice, value);
+		String valuesString = arr[1];
+		String[] valuesArr = valuesString.split("\u0002");
+		double[] values = new double[valuesArr.length];
+		for (int i = 0; i < values.length; i++) {
+			values[i] = Double.longBitsToDouble(Long.parseLong(valuesArr[i]));
+		}
+		return new Result(dice, values);
 	}
 }

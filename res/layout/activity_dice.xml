@@ -6,16 +6,23 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <ListView
-        android:id="@android:id/list"
+        android:id="@+id/resultslist"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" >
     </ListView>
 
-    <TextView
+    <!-- ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </ListView -->
+
+    <!-- TextView
         android:id="@android:id/empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/no_dice" />
+        android:text="@string/no_dice" / -->
     
 </LinearLayout>

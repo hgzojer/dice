@@ -3,21 +3,25 @@ package at.hgz.dice;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
-public class DiceActivity extends ListActivity {
+public class DiceActivity extends FragmentActivity {
 	
 	private static int CHOOSE_DICE = 1;
 
@@ -26,14 +30,18 @@ public class DiceActivity extends ListActivity {
 	private List<Result> results = new ArrayList<Result>(2);
 
 	private ResultsArrayAdapter adapter;
+	
+	private ListView listView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dice);
 
+		//listView = (ListView) findViewById(android.R.id.list);
+		listView = (ListView) findViewById(R.id.resultslist);
 		adapter = new ResultsArrayAdapter(this, R.layout.results_item, results);
-		setListAdapter(adapter);
+		listView.setAdapter(adapter);
 
 		if (savedInstanceState != null) {
 			String resultString = savedInstanceState.getString(RESULTS);
@@ -48,6 +56,13 @@ public class DiceActivity extends ListActivity {
 			addDice();
 			addDice();
 		}
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> l, View v, int position, long id) {
+				DialogFragment newFragment = new DiceNumberDialogFragment();
+				newFragment.show(getSupportFragmentManager(), "diceNumber");
+			}
+		});
 	}
 
 	@Override
@@ -92,7 +107,7 @@ public class DiceActivity extends ListActivity {
 	private void addDice() {
 		results.add(dice(results.size()));
 		adapter.notifyDataSetChanged();
-		setSelection(results.size() - 1);
+		listView.setSelection(results.size() - 1);
 	}
 
 	private void addOtherDice() {
@@ -104,10 +119,10 @@ public class DiceActivity extends ListActivity {
 		if (requestCode == CHOOSE_DICE) {
 			if (resultCode == RESULT_OK) {
 				String s = data.getStringExtra(ChooseDiceActivity.SELECTED_DICE);
-				results.add(new Result(Dice.valueOf(s), 0));
+				results.add(new Result(Dice.valueOf(s), new double[] {0}));
 				results.set(results.size() - 1, dice(results.size()));
 				adapter.notifyDataSetChanged();
-				setSelection(results.size() - 1);
+				listView.setSelection(results.size() - 1);
 			}
 		}
 	}
@@ -117,7 +132,7 @@ public class DiceActivity extends ListActivity {
 			results.remove(results.size() - 1);
 		}
 		adapter.notifyDataSetChanged();
-		setSelection(results.size() - 1);
+		listView.setSelection(results.size() - 1);
 	}
 
 	private void diceAll() {
@@ -128,20 +143,26 @@ public class DiceActivity extends ListActivity {
 	}
 
 	private Result dice(int i) {
-		double d = Math.random();
 		Dice dice;
+		int count;
 		if (i >= results.size() || results.get(i) == null) {
 			if (i == 0) {
 				dice = Dice.CUBE;
 			} else {
 				dice = results.get(i - 1).getDice();
 			}
+			count = 1;
 		} else {
 			dice = results.get(i).getDice();
+			count = results.get(i).getValues().length;
+		}
+		double[] d = new double[count];
+		for (int j = 0; j < count; j++) {
+			d[j] = Math.random();
 		}
 		return new Result(dice, d);
 	}
-
+	
 	private static class ResultsArrayAdapter extends ArrayAdapter<Result> {
 
 		static class ViewHolder {
@@ -173,13 +194,13 @@ public class DiceActivity extends ListActivity {
 			ViewHolder vh = (ViewHolder) convertView.getTag();
 			vh.result = result;
 			if (vh.result.isImage()) {
-				vh.resultsImage.setImageResource(vh.result.getImage());
+				vh.resultsImage.setImageResource(vh.result.getImage(0));
 				vh.resultsImage.setVisibility(View.VISIBLE);
 			} else {
 				vh.resultsImage.setVisibility(View.GONE);
 			}
 			if (vh.result.isText()) {
-				vh.resultsItem.setText(vh.result.getText());
+				vh.resultsItem.setText(vh.result.getText(0));
 				vh.resultsItem.setVisibility(View.VISIBLE);
 			} else {
 				vh.resultsItem.setVisibility(View.GONE);
