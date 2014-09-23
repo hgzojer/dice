@@ -33,6 +33,7 @@ public class ChooseDiceActivity extends ListActivity {
 		dice.add(Dice.TETRAHEDRON);
 		dice.add(Dice.CUBE);
 		dice.add(Dice.OCTAHEDRON);
+		dice.add(Dice.DODECAHEDRON);
 
 		adapter = new DiceArrayAdapter(this, R.layout.results_item, dice);
 		setListAdapter(adapter);
