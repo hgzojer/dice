@@ -99,26 +99,35 @@ public enum Dice {
 	 * 8
 	 */
 	OCTAHEDRON {
-		@Override
-		public int getImage() {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
-		}
-		@Override
-		public String getText() {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
-		}
-		@Override
-		public int getImage(double d) {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
-		}
-		@Override
-		public String getText(double d) {
-			// TODO Auto-generated method stub
-			throw new RuntimeException("Not implemented!");
-		}
+		private int[] images = {
+				R.drawable.ic_w8d1,
+				R.drawable.ic_w8d2,
+				R.drawable.ic_w8d3,
+				R.drawable.ic_w8d4,
+				R.drawable.ic_w8d5,
+				R.drawable.ic_w8d6,
+				R.drawable.ic_w8d7,
+				R.drawable.ic_w8d8,
+			};
+			@Override
+			public int getImage() {
+				return R.drawable.ic_w8;
+			}
+			@Override
+			public String getText() {
+				return "1 ... 8";
+			}
+			@Override
+			public int getImage(double d) {
+				return images[toInt(d)];
+			}
+			@Override
+			public String getText(double d) {
+				return "" + (1 + toInt(d)); 
+			}
+			private int toInt(double d) {
+				return (int) (d * 8);
+			}
 	},
 	
 	/**
