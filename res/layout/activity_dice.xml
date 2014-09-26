@@ -19,6 +19,13 @@
         android:layout_weight="1" >
     </ListView -->
 
+    <TextView
+        android:id="@+id/empty_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:text="@string/no_dice" />
+
     <!-- TextView
         android:id="@android:id/empty"
         android:layout_width="match_parent"

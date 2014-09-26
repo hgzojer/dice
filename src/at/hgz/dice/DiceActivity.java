@@ -40,6 +40,7 @@ public class DiceActivity extends FragmentActivity {
 
 		//listView = (ListView) findViewById(android.R.id.list);
 		listView = (ListView) findViewById(R.id.resultslist);
+		listView.setEmptyView(findViewById(R.id.empty_item));
 		adapter = new ResultsArrayAdapter(this, R.layout.results_item, results);
 		listView.setAdapter(adapter);
 
