@@ -10,7 +10,7 @@
     <string name="no_dice">No dice</string>
     <string name="number_of_dice">Number of dice</string>
     <string name="remove_dice">Remove dice</string>
-    <string name="select_dice_number">Select the number of dice</string>
+    <string name="select_dice_number">Set number of dice on this row:</string>
     <string name="set">Set</string>
     <string name="title_activity_choose_dice">Choose Dice</string>
 
