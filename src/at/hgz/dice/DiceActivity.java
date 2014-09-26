@@ -1,6 +1,7 @@
 package at.hgz.dice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import android.content.Context;
@@ -59,8 +60,19 @@ public class DiceActivity extends FragmentActivity {
 		}
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-				DialogFragment newFragment = new DiceNumberDialogFragment();
+			public void onItemClick(AdapterView<?> l, View v, final int position, long id) {
+				DialogFragment newFragment = new DiceNumberDialogFragment(results.get(position).getValues().length) {
+					@Override
+					protected void returnValue(int newLength) {
+						double[] values = results.get(position).getValues();
+						int oldLength = values.length;
+						values = Arrays.copyOf(values, newLength);
+						for (int i = oldLength; i < newLength; i++) {
+							values[i] = Math.random();
+						}
+						results.get(position).setValues(values);
+					}
+				};
 				newFragment.show(getSupportFragmentManager(), "diceNumber");
 			}
 		});

@@ -25,7 +25,7 @@ public class Result {
 		return Arrays.copyOf(values, values.length);
 	}
 
-	public void setValue(double[] values) {
+	public void setValues(double[] values) {
 		this.values = Arrays.copyOf(values, values.length);
 	}
 
