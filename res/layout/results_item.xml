@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<at.hgz.dice.ResultsItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
@@ -39,4 +39,4 @@
         android:layout_margin="10dp"
         android:text="@string/lorem_ipsum" />
 
-</LinearLayout>
+</at.hgz.dice.ResultsItemLayout>

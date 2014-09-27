@@ -71,8 +71,8 @@ public class DiceActivity extends FragmentActivity {
 							values[i] = Math.random();
 						}
 						results.get(position).setValues(values);
-						//v.invalidate();
 						adapter.notifyDataSetChanged();
+						//listView.invalidate();
 					}
 				};
 				newFragment.show(getSupportFragmentManager(), "diceNumber");
