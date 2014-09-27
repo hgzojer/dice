@@ -71,6 +71,8 @@ public class DiceActivity extends FragmentActivity {
 							values[i] = Math.random();
 						}
 						results.get(position).setValues(values);
+						//v.invalidate();
+						adapter.notifyDataSetChanged();
 					}
 				};
 				newFragment.show(getSupportFragmentManager(), "diceNumber");
@@ -180,6 +182,9 @@ public class DiceActivity extends FragmentActivity {
 
 		static class ViewHolder {
 			public ImageView resultsImage;
+			public ImageView resultsImage2;
+			public ImageView resultsImage3;
+			public ImageView resultsImage4;
 			public TextView resultsItem;
 			public Result result;
 		}
@@ -199,6 +204,9 @@ public class DiceActivity extends FragmentActivity {
 				// configure view holder
 				ViewHolder vh = new ViewHolder();
 				vh.resultsImage = (ImageView) convertView.findViewById(R.id.resultsImage);
+				vh.resultsImage2 = (ImageView) convertView.findViewById(R.id.resultsImage2);
+				vh.resultsImage3 = (ImageView) convertView.findViewById(R.id.resultsImage3);
+				vh.resultsImage4 = (ImageView) convertView.findViewById(R.id.resultsImage4);
 				vh.resultsItem = (TextView) convertView.findViewById(R.id.resultsItem);
 				convertView.setTag(vh);
 			}
@@ -206,11 +214,30 @@ public class DiceActivity extends FragmentActivity {
 			// fill data
 			ViewHolder vh = (ViewHolder) convertView.getTag();
 			vh.result = result;
-			if (vh.result.isImage()) {
+			int length = result.getValues().length;
+			if (vh.result.isImage() && length > 0) {
 				vh.resultsImage.setImageResource(vh.result.getImage(0));
 				vh.resultsImage.setVisibility(View.VISIBLE);
 			} else {
 				vh.resultsImage.setVisibility(View.GONE);
+			}
+			if (vh.result.isImage() && length > 1) {
+				vh.resultsImage2.setImageResource(vh.result.getImage(1));
+				vh.resultsImage2.setVisibility(View.VISIBLE);
+			} else {
+				vh.resultsImage2.setVisibility(View.GONE);
+			}
+			if (vh.result.isImage() && length > 2) {
+				vh.resultsImage3.setImageResource(vh.result.getImage(2));
+				vh.resultsImage3.setVisibility(View.VISIBLE);
+			} else {
+				vh.resultsImage3.setVisibility(View.GONE);
+			}
+			if (vh.result.isImage() && length > 3) {
+				vh.resultsImage4.setImageResource(vh.result.getImage(3));
+				vh.resultsImage4.setVisibility(View.VISIBLE);
+			} else {
+				vh.resultsImage4.setVisibility(View.GONE);
 			}
 			if (vh.result.isText()) {
 				vh.resultsItem.setText(vh.result.getText(0));

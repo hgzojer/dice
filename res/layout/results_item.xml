@@ -2,9 +2,31 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
+    <!-- at.hgz.dice.ResultsItemLayout -->
 
     <ImageView
         android:id="@+id/resultsImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/lorem_ipsum"
+        android:src="@drawable/ic_w6d6" />
+
+    <ImageView
+        android:id="@+id/resultsImage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/lorem_ipsum"
+        android:src="@drawable/ic_w6d6" />
+
+    <ImageView
+        android:id="@+id/resultsImage3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/lorem_ipsum"
+        android:src="@drawable/ic_w6d6" />
+
+    <ImageView
+        android:id="@+id/resultsImage4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/lorem_ipsum"
