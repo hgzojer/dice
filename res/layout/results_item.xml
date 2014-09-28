@@ -11,7 +11,7 @@
         android:contentDescription="@string/lorem_ipsum"
         android:src="@drawable/ic_w6d6" />
 
-    <ImageView
+    <!-- ImageView
         android:id="@+id/resultsImage2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,13 +30,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/lorem_ipsum"
-        android:src="@drawable/ic_w6d6" />
+        android:src="@drawable/ic_w6d6" / -->
 
-    <TextView
+    <!-- TextView
         android:id="@+id/resultsItem"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="@string/lorem_ipsum" />
+        android:text="@string/lorem_ipsum" / -->
 
 </at.hgz.dice.ResultsItemLayout>

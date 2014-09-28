@@ -19,8 +19,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class DiceActivity extends FragmentActivity {
 	
@@ -178,14 +178,11 @@ public class DiceActivity extends FragmentActivity {
 		return new Result(dice, d);
 	}
 	
-	private static class ResultsArrayAdapter extends ArrayAdapter<Result> {
+	private class ResultsArrayAdapter extends ArrayAdapter<Result> {
 
-		static class ViewHolder {
-			public ImageView resultsImage;
-			public ImageView resultsImage2;
-			public ImageView resultsImage3;
-			public ImageView resultsImage4;
-			public TextView resultsItem;
+		class ViewHolder {
+			public List<ImageView> resultsImages;
+			//public TextView resultsItem;
 			public Result result;
 		}
 
@@ -203,48 +200,44 @@ public class DiceActivity extends FragmentActivity {
 				convertView = LayoutInflater.from(getContext()).inflate(R.layout.results_item, parent, false);
 				// configure view holder
 				ViewHolder vh = new ViewHolder();
-				vh.resultsImage = (ImageView) convertView.findViewById(R.id.resultsImage);
-				vh.resultsImage2 = (ImageView) convertView.findViewById(R.id.resultsImage2);
-				vh.resultsImage3 = (ImageView) convertView.findViewById(R.id.resultsImage3);
-				vh.resultsImage4 = (ImageView) convertView.findViewById(R.id.resultsImage4);
-				vh.resultsItem = (TextView) convertView.findViewById(R.id.resultsItem);
+				vh.resultsImages = new ArrayList<ImageView>(10);
+				vh.resultsImages.add((ImageView) convertView.findViewById(R.id.resultsImage));
+				//vh.resultsItem = (TextView) convertView.findViewById(R.id.resultsItem);
 				convertView.setTag(vh);
 			}
 
 			// fill data
 			ViewHolder vh = (ViewHolder) convertView.getTag();
 			vh.result = result;
+			
 			int length = result.getValues().length;
-			if (vh.result.isImage() && length > 0) {
-				vh.resultsImage.setImageResource(vh.result.getImage(0));
-				vh.resultsImage.setVisibility(View.VISIBLE);
-			} else {
-				vh.resultsImage.setVisibility(View.GONE);
+			ViewGroup vg = (ViewGroup) convertView;
+			for (int i = vg.getChildCount(); i < length; i++) {
+				if (i >= vh.resultsImages.size()) {
+					ImageView imageView = new ImageView(DiceActivity.this);
+					imageView.setLayoutParams(new LinearLayout.LayoutParams(
+							LinearLayout.LayoutParams.WRAP_CONTENT,
+							LinearLayout.LayoutParams.WRAP_CONTENT));
+					vh.resultsImages.add(imageView);
+				}
+				vg.addView(vh.resultsImages.get(i));
 			}
-			if (vh.result.isImage() && length > 1) {
-				vh.resultsImage2.setImageResource(vh.result.getImage(1));
-				vh.resultsImage2.setVisibility(View.VISIBLE);
-			} else {
-				vh.resultsImage2.setVisibility(View.GONE);
+			for (int i = vg.getChildCount() - 1; i >= length; i--) {
+				vg.removeViewAt(i);
 			}
-			if (vh.result.isImage() && length > 2) {
-				vh.resultsImage3.setImageResource(vh.result.getImage(2));
-				vh.resultsImage3.setVisibility(View.VISIBLE);
-			} else {
-				vh.resultsImage3.setVisibility(View.GONE);
+			for (int i = vh.resultsImages.size() - 1; i >= length; i--) {
+				vh.resultsImages.remove(i);
 			}
-			if (vh.result.isImage() && length > 3) {
-				vh.resultsImage4.setImageResource(vh.result.getImage(3));
-				vh.resultsImage4.setVisibility(View.VISIBLE);
-			} else {
-				vh.resultsImage4.setVisibility(View.GONE);
+			for (int i = 0; i < length; i++) {
+				vh.resultsImages.get(i).setImageResource(vh.result.getImage(length - i - 1));
+				vh.resultsImages.get(i).setVisibility(View.VISIBLE);
 			}
-			if (vh.result.isText()) {
+			/*if (vh.result.isText()) {
 				vh.resultsItem.setText(vh.result.getText(0));
 				vh.resultsItem.setVisibility(View.VISIBLE);
 			} else {
 				vh.resultsItem.setVisibility(View.GONE);
-			}
+			}*/
 
 			return convertView;
 		}

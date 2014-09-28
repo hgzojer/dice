@@ -4,10 +4,8 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 public class ResultsItemLayout extends ViewGroup {
 	

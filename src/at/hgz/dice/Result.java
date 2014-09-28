@@ -10,7 +10,7 @@ public class Result {
 
 	public Result(Dice dice, double[] values) {
 		this.dice = dice;
-		this.values = Arrays.copyOf(values, values.length);
+		setValues1(values);
 	}
 
 	public Dice getDice() {
@@ -22,11 +22,16 @@ public class Result {
 	}
 
 	public double[] getValues() {
-		return Arrays.copyOf(values, values.length);
+		return values;
 	}
 
 	public void setValues(double[] values) {
+		setValues1(values);
+	}
+
+	private void setValues1(double[] values) {
 		this.values = Arrays.copyOf(values, values.length);
+		Arrays.sort(this.values);
 	}
 
 	public String getText(int i) {
