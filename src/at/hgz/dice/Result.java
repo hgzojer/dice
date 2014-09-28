@@ -32,6 +32,12 @@ public class Result {
 	private void setValues1(double[] values) {
 		this.values = Arrays.copyOf(values, values.length);
 		Arrays.sort(this.values);
+		for (int i = 0; i < this.values.length / 2; i++) {
+			int j = this.values.length - i - 1;
+			double swap = this.values[i];
+			this.values[i] = this.values[j];
+			this.values[j] = swap;
+		}
 	}
 
 	public String getText(int i) {

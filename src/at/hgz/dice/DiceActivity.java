@@ -229,7 +229,7 @@ public class DiceActivity extends FragmentActivity {
 				vh.resultsImages.remove(i);
 			}
 			for (int i = 0; i < length; i++) {
-				vh.resultsImages.get(i).setImageResource(vh.result.getImage(length - i - 1));
+				vh.resultsImages.get(i).setImageResource(vh.result.getImage(i));
 				vh.resultsImages.get(i).setVisibility(View.VISIBLE);
 			}
 			/*if (vh.result.isText()) {
