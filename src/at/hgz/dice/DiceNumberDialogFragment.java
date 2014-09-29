@@ -52,6 +52,13 @@ public abstract class DiceNumberDialogFragment extends DialogFragment {
         return builder.create();
     }
 	
+	@Override
+	public void onDestroyView() {
+	  if (getDialog() != null && getRetainInstance())
+	    getDialog().setDismissMessage(null);
+	  super.onDestroyView();
+	}
+	
 	protected abstract void returnValue(int value);
 
 }
