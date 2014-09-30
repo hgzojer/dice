@@ -1,27 +1,32 @@
 package at.hgz.dice;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.NumberPicker;
 
-public abstract class DiceNumberDialogFragment extends DialogFragment {
+public class DiceNumberDialogFragment extends DialogFragment implements DialogInterface.OnClickListener {
 	
-	private int value;
+	public static final String VALUE = "value";
+	
+	public static final String POSITION = "position";
 	
 	private NumberPicker diceNumberPicker;
-
-	public DiceNumberDialogFragment(int value) {
-		this.value = value;
-	}
-
+	
 	@Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-		setRetainInstance(true);
+		int value;
+		if (savedInstanceState != null) {
+			value = savedInstanceState.getInt(VALUE);
+		} else {
+			value = getArguments().getInt(VALUE);
+		}
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -38,27 +43,25 @@ public abstract class DiceNumberDialogFragment extends DialogFragment {
         // set title
         		.setTitle(R.string.number_of_dice)
         // Add action buttons
-               .setPositiveButton(R.string.set, new DialogInterface.OnClickListener() {
-                   @Override
-                   public void onClick(DialogInterface dialog, int id) {
-                       returnValue(diceNumberPicker.getValue());
-                   }
-               })
-               .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
-                	   DiceNumberDialogFragment.this.getDialog().cancel();
-                   }
-               });      
+               .setPositiveButton(R.string.set, this)
+               .setNegativeButton(R.string.cancel, null);      
         return builder.create();
     }
-	
+
+	private int getNewLength() {
+		return diceNumberPicker.getValue();
+	}
+
 	@Override
-	public void onDestroyView() {
-	  if (getDialog() != null && getRetainInstance())
-	    getDialog().setDismissMessage(null);
-	  super.onDestroyView();
+	public void onClick(DialogInterface dialog, int clickPosition) {
+		DiceActivity activity = (DiceActivity) getActivity();
+		int position = getArguments().getInt(POSITION);
+		activity.selectNumber(getNewLength(), position);
 	}
 	
-	protected abstract void returnValue(int value);
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+		savedInstanceState.putInt(VALUE, getNewLength());
+	}
 
 }

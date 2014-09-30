@@ -7,7 +7,6 @@ import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -24,7 +23,7 @@ import android.widget.ListView;
 
 public class DiceActivity extends FragmentActivity {
 	
-	private static int CHOOSE_DICE = 1;
+	private static final int CHOOSE_DICE = 1;
 
 	private static final String RESULTS = "results";
 
@@ -60,27 +59,17 @@ public class DiceActivity extends FragmentActivity {
 		}
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> l, View v, final int position, long id) {
-				DialogFragment newFragment = new DiceNumberDialogFragment(results.get(position).getValues().length) {
-					@Override
-					protected void returnValue(int newLength) {
-						double[] values = results.get(position).getValues();
-						int oldLength = values.length;
-						values = Arrays.copyOf(values, newLength);
-						for (int i = oldLength; i < newLength; i++) {
-							values[i] = Math.random();
-						}
-						results.get(position).setValues(values);
-						adapter.notifyDataSetChanged();
-						listView.invalidate();
-						listView.setSelection(position);
-					}
-				};
+			public void onItemClick(AdapterView<?> l, View v, int position, long id) {
+				Bundle bundle = new Bundle();
+				bundle.putInt(DiceNumberDialogFragment.VALUE, results.get(position).getValues().length);
+				bundle.putInt(DiceNumberDialogFragment.POSITION, position);
+				DiceNumberDialogFragment newFragment = new DiceNumberDialogFragment();
+				newFragment.setArguments(bundle);
 				newFragment.show(getSupportFragmentManager(), "diceNumber");
 			}
 		});
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
@@ -243,6 +232,19 @@ public class DiceActivity extends FragmentActivity {
 
 			return convertView;
 		}
+	}
+
+	public void selectNumber(int newLength, int position) {
+		double[] values = results.get(position).getValues();
+		int oldLength = values.length;
+		values = Arrays.copyOf(values, newLength);
+		for (int i = oldLength; i < newLength; i++) {
+			values[i] = Math.random();
+		}
+		results.get(position).setValues(values);
+		adapter.notifyDataSetChanged();
+		listView.invalidate();
+		listView.setSelection(position);
 	}
 
 }
