@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_dice">Würfel</string>
+    <string name="add_dice">Würfel hinzufügen</string>
+    <string name="add_other_dice">Anderen Würfel hinzufügen</string>
+    <string name="app_name">Würfel</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="no_dice">Keine Würfel</string>
+    <string name="number_of_dice">Anzahl der Würfel</string>
+    <string name="remove_dice">Würfel entfernen</string>
+    <string name="select_dice_number">Setzt die Anzahl der Würfel in dieser Zeile:</string>
+    <string name="set">Setzen</string>
+    <string name="title_activity_choose_dice">Würfel auswählen</string>
+
+</resources>

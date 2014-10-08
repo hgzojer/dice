@@ -222,7 +222,7 @@ public class DiceActivity extends FragmentActivity {
 				vh.resultsImages.get(i).setImageResource(vh.result.getImage(i));
 				vh.resultsImages.get(i).setVisibility(View.VISIBLE);
 			}
-			convertView.setBackgroundColor((position & 1) == 0 ? 0xffffffcc : 0xffeeeeee);
+			convertView.setBackgroundColor((position & 1) == 0 ? 0xffdddddd : 0xffeeeeee);
 			/*if (vh.result.isText()) {
 				vh.resultsItem.setText(vh.result.getText(0));
 				vh.resultsItem.setVisibility(View.VISIBLE);
