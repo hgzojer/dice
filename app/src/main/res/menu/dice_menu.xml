@@ -1,0 +1,25 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/remove_dice"
+        android:icon="@drawable/ic_action_remove_dice"
+        android:title="@string/remove_dice"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/add_other_dice"
+        android:icon="@drawable/ic_action_add_other_dice"
+        android:title="@string/add_other_dice"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/add_dice"
+        android:icon="@drawable/ic_action_add_dice"
+        android:title="@string/add_dice"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_dice"
+        android:icon="@drawable/ic_action_dice"
+        android:title="@string/action_dice"
+        app:showAsAction="ifRoom" />
+
+</menu>
