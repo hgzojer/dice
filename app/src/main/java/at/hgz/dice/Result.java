@@ -48,7 +48,9 @@ public class Result {
 		return dice.getImage(values[i]);
 	}
 
-	public String getContentDescription(int i) { return "" + (1 + values[i]); }
+	public int getContentDescriptionId(int i) {
+		return dice.getContentDescriptionId(values[i]);
+	}
 	
 	public boolean isText() {
 		return dice.isText();

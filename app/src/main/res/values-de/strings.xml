@@ -20,5 +20,27 @@
     <string name="pentagonal_trapezohedron">Pentagonales Trapezoeder</string>
     <string name="dodecahedron">Dodekaeder</string>
     <string name="icosahedron">Ikosaeder</string>
+    <string name="head">Kopf</string>
+    <string name="tail">Zahl</string>
+    <string name="face_1">1</string>
+    <string name="face_2">2</string>
+    <string name="face_3">3</string>
+    <string name="face_4">4</string>
+    <string name="face_5">5</string>
+    <string name="face_6">6</string>
+    <string name="face_7">7</string>
+    <string name="face_8">8</string>
+    <string name="face_9">9</string>
+    <string name="face_10">10</string>
+    <string name="face_11">11</string>
+    <string name="face_12">12</string>
+    <string name="face_13">13</string>
+    <string name="face_14">14</string>
+    <string name="face_15">15</string>
+    <string name="face_16">16</string>
+    <string name="face_17">17</string>
+    <string name="face_18">18</string>
+    <string name="face_19">19</string>
+    <string name="face_20">20</string>
 
 </resources>
