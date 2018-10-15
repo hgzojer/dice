@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="action_dice">Dice</string>
+    <string name="action_dice">Roll dice</string>
     <string name="add_dice">Add dice</string>
     <string name="add_other_dice">Add other dice</string>
     <string name="app_name">Dice</string>
@@ -13,5 +13,12 @@
     <string name="select_dice_number">Set number of dice on this row:</string>
     <string name="set">Set</string>
     <string name="title_activity_choose_dice">Choose Dice</string>
+    <string name="coin">Coin</string>
+    <string name="tetrahedron">Tetrahedron</string>
+    <string name="cube">Cube</string>
+    <string name="octahedron">Octahedron</string>
+    <string name="pentagonal_trapezohedron">Pentagonal trapezohedron</string>
+    <string name="dodecahedron">Dodecahedron</string>
+    <string name="icosahedron">Icosahedron</string>
 
 </resources>

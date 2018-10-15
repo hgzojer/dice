@@ -82,8 +82,10 @@ public class ChooseDiceActivity extends ListActivity {
 			if (vh.dice.isImage()) {
 				vh.resultsImage.setImageResource(vh.dice.getImage());
 				vh.resultsImage.setVisibility(View.VISIBLE);
+				vh.resultsImage.setContentDescription(vh.dice.getContentDescription());
 			} else {
 				vh.resultsImage.setVisibility(View.GONE);
+				vh.resultsImage.setContentDescription(null);
 			}
 			if (vh.dice.isText()) {
 				vh.resultsItem.setText(vh.dice.getText());

@@ -9,11 +9,11 @@ public enum Dice {
 		private int[] images = {
 				R.drawable.ic_w2d1,
 				R.drawable.ic_w2d2,
-			};
-			@Override
-			public int getImage() {
-				return R.drawable.ic_w2;
-			}
+		};
+		@Override
+		public int getImage() {
+			return R.drawable.ic_w2;
+		}
 		@Override
 		public String getText() {
 			return "Coin";
@@ -26,6 +26,8 @@ public enum Dice {
 		public String getText(double d) {
 			return toInt(d) == 0 ? "Head" : "Tail";
 		}
+		@Override
+		public String getContentDescription() { return "@string/coin"; }
 		private int toInt(double d) {
 			return (int) (d * 2);
 		}
@@ -40,39 +42,41 @@ public enum Dice {
 				R.drawable.ic_w4d2,
 				R.drawable.ic_w4d3,
 				R.drawable.ic_w4d4,
-			};
-			@Override
-			public int getImage() {
-				return R.drawable.ic_w4;
-			}
-			@Override
-			public String getText() {
-				return "1 ... 4";
-			}
-			@Override
-			public int getImage(double d) {
-				return images[toInt(d)];
-			}
-			@Override
-			public String getText(double d) {
-				return "" + (1 + toInt(d)); 
-			}
-			private int toInt(double d) {
-				return (int) (d * 4);
-			}
-		},
+		};
+		@Override
+		public int getImage() {
+			return R.drawable.ic_w4;
+		}
+		@Override
+		public String getText() {
+			return "1 ... 4";
+		}
+		@Override
+		public int getImage(double d) {
+			return images[toInt(d)];
+		}
+		@Override
+		public String getText(double d) {
+			return "" + (1 + toInt(d));
+		}
+		@Override
+		public String getContentDescription() { return "@string/tetrahedron"; }
+		private int toInt(double d) {
+			return (int) (d * 4);
+		}
+	},
 	
 	/**
 	 * 6
 	 */
 	CUBE {
 		private int[] images = {
-			R.drawable.ic_w6d1,
-			R.drawable.ic_w6d2,
-			R.drawable.ic_w6d3,
-			R.drawable.ic_w6d4,
-			R.drawable.ic_w6d5,
-			R.drawable.ic_w6d6,
+				R.drawable.ic_w6d1,
+				R.drawable.ic_w6d2,
+				R.drawable.ic_w6d3,
+				R.drawable.ic_w6d4,
+				R.drawable.ic_w6d5,
+				R.drawable.ic_w6d6,
 		};
 		@Override
 		public int getImage() {
@@ -90,6 +94,8 @@ public enum Dice {
 		public String getText(double d) {
 			return "" + (1 + toInt(d)); 
 		}
+		@Override
+		public String getContentDescription() { return "@string/cube"; }
 		private int toInt(double d) {
 			return (int) (d * 6);
 		}
@@ -108,26 +114,28 @@ public enum Dice {
 				R.drawable.ic_w8d6,
 				R.drawable.ic_w8d7,
 				R.drawable.ic_w8d8,
-			};
-			@Override
-			public int getImage() {
-				return R.drawable.ic_w8;
-			}
-			@Override
-			public String getText() {
-				return "1 ... 8";
-			}
-			@Override
-			public int getImage(double d) {
-				return images[toInt(d)];
-			}
-			@Override
-			public String getText(double d) {
-				return "" + (1 + toInt(d)); 
-			}
-			private int toInt(double d) {
-				return (int) (d * 8);
-			}
+		};
+		@Override
+		public int getImage() {
+			return R.drawable.ic_w8;
+		}
+		@Override
+		public String getText() {
+			return "1 ... 8";
+		}
+		@Override
+		public int getImage(double d) {
+			return images[toInt(d)];
+		}
+		@Override
+		public String getText(double d) {
+			return "" + (1 + toInt(d));
+		}
+		@Override
+		public String getContentDescription() { return "@string/octahedron"; }
+		private int toInt(double d) {
+			return (int) (d * 8);
+		}
 	},
 	
 	/**
@@ -154,6 +162,8 @@ public enum Dice {
 			// TODO Auto-generated method stub
 			throw new RuntimeException("Not implemented!");
 		}
+		@Override
+		public String getContentDescription() { return "@string/pentagonal_trapezohedron"; }
 	},
 	
 	/**
@@ -173,26 +183,28 @@ public enum Dice {
 				R.drawable.ic_w12d10,
 				R.drawable.ic_w12d11,
 				R.drawable.ic_w12d12,
-			};
-			@Override
-			public int getImage() {
-				return R.drawable.ic_w12;
-			}
-			@Override
-			public String getText() {
-				return "1 ... 12";
-			}
-			@Override
-			public int getImage(double d) {
-				return images[toInt(d)];
-			}
-			@Override
-			public String getText(double d) {
-				return "" + (1 + toInt(d)); 
-			}
-			private int toInt(double d) {
-				return (int) (d * 12);
-			}
+		};
+		@Override
+		public int getImage() {
+			return R.drawable.ic_w12;
+		}
+		@Override
+		public String getText() {
+			return "1 ... 12";
+		}
+		@Override
+		public int getImage(double d) {
+			return images[toInt(d)];
+		}
+		@Override
+		public String getText(double d) {
+			return "" + (1 + toInt(d));
+		}
+		@Override
+		public String getContentDescription() { return "@string/dodecahedron"; }
+		private int toInt(double d) {
+			return (int) (d * 12);
+		}
 	},
 	
 	/**
@@ -220,26 +232,28 @@ public enum Dice {
 				R.drawable.ic_w20d18,
 				R.drawable.ic_w20d19,
 				R.drawable.ic_w20d20,
-			};
-			@Override
-			public int getImage() {
-				return R.drawable.ic_w20;
-			}
-			@Override
-			public String getText() {
-				return "1 ... 20";
-			}
-			@Override
-			public int getImage(double d) {
-				return images[toInt(d)];
-			}
-			@Override
-			public String getText(double d) {
-				return "" + (1 + toInt(d)); 
-			}
-			private int toInt(double d) {
-				return (int) (d * 20);
-			}
+		};
+		@Override
+		public int getImage() {
+			return R.drawable.ic_w20;
+		}
+		@Override
+		public String getText() {
+			return "1 ... 20";
+		}
+		@Override
+		public int getImage(double d) {
+			return images[toInt(d)];
+		}
+		@Override
+		public String getText(double d) {
+			return "" + (1 + toInt(d));
+		}
+		@Override
+		public String getContentDescription() { return "@string/icosahedron"; }
+		private int toInt(double d) {
+			return (int) (d * 20);
+		}
 	};
 	
 	public boolean isImage() {
@@ -257,4 +271,6 @@ public enum Dice {
 	public abstract int getImage(double d);
 	
 	public abstract String getText(double d);
+
+	public abstract String getContentDescription();
 }

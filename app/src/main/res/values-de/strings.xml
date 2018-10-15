@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="action_dice">Würfel</string>
+    <string name="action_dice">Würfeln</string>
     <string name="add_dice">Würfel hinzufügen</string>
     <string name="add_other_dice">Anderen Würfel hinzufügen</string>
     <string name="app_name">Würfel</string>
@@ -13,5 +13,12 @@
     <string name="select_dice_number">Setzt die Anzahl der Würfel in dieser Zeile:</string>
     <string name="set">Setzen</string>
     <string name="title_activity_choose_dice">Würfel auswählen</string>
+    <string name="coin">Münze</string>
+    <string name="tetrahedron">Tetraeder</string>
+    <string name="cube">Hexaeder</string>
+    <string name="octahedron">Oktaeder</string>
+    <string name="pentagonal_trapezohedron">Pentagonales Trapezoeder</string>
+    <string name="dodecahedron">Dodekaeder</string>
+    <string name="icosahedron">Ikosaeder</string>
 
 </resources>

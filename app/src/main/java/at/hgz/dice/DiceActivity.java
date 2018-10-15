@@ -231,6 +231,7 @@ public class DiceActivity extends  /*FragmentActivity*/ AppCompatActivity {
 			for (int i = 0; i < length; i++) {
 				vh.resultsImages.get(i).setImageResource(vh.result.getImage(i));
 				vh.resultsImages.get(i).setVisibility(View.VISIBLE);
+				vh.resultsImages.get(i).setContentDescription(vh.result.getContentDescription(i));
 			}
 			convertView.setBackgroundColor((position & 1) == 0 ? 0xffdddddd : 0xffeeeeee);
 			/*if (vh.result.isText()) {

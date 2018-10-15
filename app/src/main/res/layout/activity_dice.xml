@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:src="@drawable/ic_action_dice"
+        android:contentDescription="@string/action_dice"
         android:layout_margin="16dp" />
 
     <!-- TextView
